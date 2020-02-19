@@ -1,4 +1,4 @@
-package com.chessapi.API;
+package com.infy.chessapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
