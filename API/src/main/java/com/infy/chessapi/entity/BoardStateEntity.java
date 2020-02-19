@@ -23,13 +23,11 @@ public class BoardStateEntity {
 	private Integer gameID;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="username")
-	@Column(name="WHITE_USER")
+	@JoinColumn(name="WHITE_USER")
 	private UserEntity whiteUser;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="username")
-	@Column(name="BLACK_USER")
+	@JoinColumn(name="BLACK_USER")
 	private UserEntity blackUser;
 	
 	@Column(name="LAST_MOVE")
