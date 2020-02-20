@@ -38,4 +38,53 @@ public class BoardStateEntity {
 	
 	@Column(name="PIECES_LIST")
 	private String[][] piecesList;
+
+	public Integer getGameID() {
+		return gameID;
+	}
+
+	public void setGameID(Integer gameID) {
+		this.gameID = gameID;
+	}
+
+	public UserEntity getWhiteUser() {
+		return whiteUser;
+	}
+
+	public void setWhiteUser(UserEntity whiteUser) {
+		this.whiteUser = whiteUser;
+	}
+
+	public UserEntity getBlackUser() {
+		return blackUser;
+	}
+
+	public void setBlackUser(UserEntity blackUser) {
+		this.blackUser = blackUser;
+	}
+
+	public LocalDate getLastMove() {
+		return lastMove;
+	}
+
+	public void setLastMove(LocalDate lastMove) {
+		this.lastMove = lastMove;
+	}
+
+	public Boolean getIsWhiteTurn() {
+		return isWhiteTurn;
+	}
+
+	public void setIsWhiteTurn(Boolean isWhiteTurn) {
+		this.isWhiteTurn = isWhiteTurn;
+	}
+
+	public String[][] getPiecesList() {
+		return piecesList;
+	}
+
+	public void setPiecesList(String[][] piecesList) {
+		this.piecesList = piecesList;
+	}
+	
 }

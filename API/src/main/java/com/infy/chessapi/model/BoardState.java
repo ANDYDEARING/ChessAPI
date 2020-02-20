@@ -6,7 +6,7 @@ public class BoardState {
 	
 	private String whiteUser;
 	private String blackUser;
-	private String gameID;
+	private Integer gameID;
 	private LocalDate lastMove;
 	private Boolean isWhiteTurn;
 	private String[][] piecesList;
@@ -24,10 +24,10 @@ public class BoardState {
 	public void setBlackUser(String blackUser) {
 		this.blackUser = blackUser;
 	}
-	public String getGameID() {
+	public Integer getGameID() {
 		return gameID;
 	}
-	public void setGameID(String gameID) {
+	public void setGameID(Integer gameID) {
 		this.gameID = gameID;
 	}
 	public LocalDate getLastMove() {
