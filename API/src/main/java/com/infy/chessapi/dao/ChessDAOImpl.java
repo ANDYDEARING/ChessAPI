@@ -1,6 +1,7 @@
 package com.infy.chessapi.dao;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -88,6 +89,27 @@ public class ChessDAOImpl implements ChessDAO {
 	
 	@Override
 	public Boolean populateTestData(List<String> usernames, List<String> passwords, List<BoardState> boardStates){
+		if(usernames.size() != passwords.size()){
+			return false;
+		} else {
+			for(int i=0;i<usernames.size();i++){
+				UserEntity user = new UserEntity();
+				user.setUsername(usernames.get(i));
+				user.setPassword(passwords.get(i));
+				entityManager.persist(user);
+			}
+			for(int i=0;i<boardStates.size();i++){
+				BoardState boardState = boardStates.get(i);
+				BoardStateEntity boardEntity = new BoardStateEntity();
+				boardEntity.setBlackUser(entityManager.find(UserEntity.class, boardState.getBlackUser()));
+				boardEntity.setWhiteUser(entityManager.find(UserEntity.class, boardState.getWhiteUser()));
+				boardEntity.setGameID(boardState.getGameID());
+				boardEntity.setIsWhiteTurn(boardState.getIsWhiteTurn());
+				boardEntity.setLastMove(boardState.getLastMove());
+				boardEntity.setPiecesList(boardState.getPiecesList());
+				entityManager.persist(boardEntity);
+			}
+		}
 		return true;
 	}
 	
