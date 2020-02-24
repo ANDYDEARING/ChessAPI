@@ -45,7 +45,7 @@ public class ChessServiceImpl implements ChessService{
 			piece[0]="WHITE";
 			piece[1]="PAWN";
 			piece[2]=Integer.toString(i);
-			piece[3]="1";
+			piece[3]="6";
 			piecesList[i]=piece;
 		}
 		for(int i=8;i<16;i++){
@@ -53,7 +53,7 @@ public class ChessServiceImpl implements ChessService{
 			piece[0]="BLACK"; 
 			piece[1]="PAWN";
 			piece[2]=Integer.toString(i);
-			piece[3]="6";
+			piece[3]="1";
 			piecesList[i]=piece;
 		}
 		
