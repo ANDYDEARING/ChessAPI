@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -36,8 +38,10 @@ public class BoardStateEntity {
 	@Column(name="IS_WHITE_TURN")
 	private Boolean isWhiteTurn;
 	
-	@Column(name="PIECES_LIST")
-	private String[][] piecesList;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="BOARD_ID")
+	@OrderColumn(name="PIECE_INDEX")
+	private PieceEntity[] piecesList;
 
 	public Integer getGameID() {
 		return gameID;
@@ -79,11 +83,11 @@ public class BoardStateEntity {
 		this.isWhiteTurn = isWhiteTurn;
 	}
 
-	public String[][] getPiecesList() {
+	public PieceEntity[] getPiecesList() {
 		return piecesList;
 	}
 
-	public void setPiecesList(String[][] piecesList) {
+	public void setPiecesList(PieceEntity[] piecesList) {
 		this.piecesList = piecesList;
 	}
 	

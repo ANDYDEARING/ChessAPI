@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.infy.chessapi.entity.BoardStateEntity;
+import com.infy.chessapi.entity.PieceEntity;
 import com.infy.chessapi.entity.UserEntity;
 import com.infy.chessapi.model.BoardState;
 
@@ -31,7 +32,17 @@ public class ChessDAOImpl implements ChessDAO {
 			result.setGameID(boardEntity.getGameID());
 			result.setIsWhiteTurn(boardEntity.getIsWhiteTurn());
 			result.setLastMove(boardEntity.getLastMove());
-			result.setPiecesList(boardEntity.getPiecesList());
+			PieceEntity[] pieceEntityList = boardEntity.getPiecesList();
+			String[][] pieceStringList = new String[32][4];
+			for(int i=0;i<pieceEntityList.length;i++){
+				String[] piece = new String[4];
+				piece[0]=pieceEntityList[i].getColor();
+				piece[1]=pieceEntityList[i].getName();
+				piece[2]=Integer.toString(pieceEntityList[i].getxCoord());
+				piece[3]=Integer.toString(pieceEntityList[i].getyCoord());
+				pieceStringList[i]=piece;
+			}
+			result.setPiecesList(pieceStringList);
 		}
 		return result;
 	}
@@ -103,11 +114,24 @@ public class ChessDAOImpl implements ChessDAO {
 				BoardStateEntity boardEntity = new BoardStateEntity();
 				boardEntity.setBlackUser(entityManager.find(UserEntity.class, boardState.getBlackUser()));
 				boardEntity.setWhiteUser(entityManager.find(UserEntity.class, boardState.getWhiteUser()));
-				boardEntity.setGameID(boardState.getGameID());
 				boardEntity.setIsWhiteTurn(boardState.getIsWhiteTurn());
 				boardEntity.setLastMove(boardState.getLastMove());
-				boardEntity.setPiecesList(boardState.getPiecesList());
-				entityManager.persist(boardEntity);
+				PieceEntity[] pieceEntityList = new PieceEntity[32];
+				String[][] piecesStringList = boardState.getPiecesList();
+				for(int j=0;j<piecesStringList.length;j++){
+					PieceEntity pieceEntity = new PieceEntity();
+					pieceEntity.setColor(piecesStringList[j][0]);
+					pieceEntity.setName(piecesStringList[j][1]);
+					pieceEntity.setxCoord(Integer.parseInt(piecesStringList[j][2]));
+					pieceEntity.setyCoord(Integer.parseInt(piecesStringList[j][3]));
+					pieceEntityList[j] = pieceEntity;
+				}
+				boardEntity.setPiecesList(pieceEntityList);
+				try{
+					entityManager.persist(boardEntity);					
+				} catch (Exception e){
+					System.out.println(e.getMessage());
+				}
 			}
 		}
 		return true;

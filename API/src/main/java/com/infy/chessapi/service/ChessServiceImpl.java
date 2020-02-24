@@ -36,7 +36,6 @@ public class ChessServiceImpl implements ChessService{
 		
 		boardState1.setWhiteUser("user1");
 		boardState1.setBlackUser("user2");
-		boardState1.setGameID(1);
 		boardState1.setLastMove(LocalDate.now());
 		boardState1.setIsWhiteTurn(true);
 		
