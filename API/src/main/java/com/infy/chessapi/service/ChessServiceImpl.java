@@ -199,12 +199,32 @@ public class ChessServiceImpl implements ChessService{
 
 	@Override
 	public List<BoardState> getGames(String authToken) throws Exception{
+			String username = authenticateAuthToken(authToken);
+			return chessDAO.getGames(username);
+	}
+
+	@Override
+	public BoardState getGame(String authToken, String gameId) throws Exception{
+		String username = authenticateAuthToken(authToken);
+		BoardState boardState = chessDAO.getBoardState(gameId);
+		if(boardState != null){
+			if(boardState.getBlackUser()==username || boardState.getWhiteUser()==username){
+				return boardState;
+			} else {
+				throw new Exception("ChessService.INVALID_PLAYER");
+			}
+		} else {			
+			throw new Exception("ChessService.INVALID_GAME");
+		}
+	}
+
+	@Override
+	public String authenticateAuthToken(String authToken) throws Exception{
 		String username = chessDAO.getUserFromToken(authToken);
 		if(username != null){
-			return chessDAO.getGames(username);
+			return username;
 		} else {
 			throw new Exception("ChessService.INVALID_TOKEN");			
 		}
 	}
-
 }

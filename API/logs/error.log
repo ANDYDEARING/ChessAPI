@@ -607,3 +607,178 @@
 2020-02-25 14:41:31.126  INFO 28000 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-02-25 14:41:31.136  INFO 28000 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
 2020-02-25 14:41:31.377  INFO 28000 --- [http-nio-3333-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-02-25 15:02:26.684  INFO 45348 --- [main] com.infy.chessapi.ApiApplication         : Starting ApiApplication on BLRKEC149273L with PID 45348 (C:\Users\andy.dearing\Desktop\Chess\API\target\classes started by andy.dearing in C:\Users\andy.dearing\Desktop\Chess\API)
+2020-02-25 15:02:26.689  INFO 45348 --- [main] com.infy.chessapi.ApiApplication         : No active profile set, falling back to default profiles: default
+2020-02-25 15:02:28.347  INFO 45348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-02-25 15:02:28.396  INFO 45348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 JPA repository interfaces.
+2020-02-25 15:02:29.157  INFO 45348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$107bc741] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-25 15:02:29.958  INFO 45348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3333 (http)
+2020-02-25 15:02:30.019  INFO 45348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-25 15:02:30.020  INFO 45348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-25 15:02:30.237  INFO 45348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-25 15:02:30.238  INFO 45348 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3442 ms
+2020-02-25 15:02:30.474  INFO 45348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-25 15:02:31.473  INFO 45348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-25 15:02:31.560  INFO 45348 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-02-25 15:02:31.703  INFO 45348 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.15.Final}
+2020-02-25 15:02:31.705  INFO 45348 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-02-25 15:02:32.003  INFO 45348 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-02-25 15:02:32.325  INFO 45348 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-02-25 15:02:33.471  INFO 45348 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-25 15:02:33.924  INFO 45348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-25 15:02:34.001  WARN 45348 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-25 15:02:34.346  INFO 45348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3333 (http) with context path ''
+2020-02-25 15:02:34.349  INFO 45348 --- [main] com.infy.chessapi.ApiApplication         : Started ApiApplication in 8.52 seconds (JVM running for 9.092)
+2020-02-25 15:02:58.626  INFO 45348 --- [http-nio-3333-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-25 15:02:58.627  INFO 45348 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-25 15:02:58.647  INFO 45348 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2020-02-25 15:03:27.272  INFO 44824 --- [main] com.infy.chessapi.ApiApplication         : Starting ApiApplication on BLRKEC149273L with PID 44824 (C:\Users\andy.dearing\Desktop\Chess\API\target\classes started by andy.dearing in C:\Users\andy.dearing\Desktop\Chess\API)
+2020-02-25 15:03:27.279  INFO 44824 --- [main] com.infy.chessapi.ApiApplication         : No active profile set, falling back to default profiles: default
+2020-02-25 15:03:28.605  INFO 44824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-02-25 15:03:28.640  INFO 44824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 JPA repository interfaces.
+2020-02-25 15:03:29.232  INFO 44824 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8d286458] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-25 15:03:29.833  INFO 44824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3333 (http)
+2020-02-25 15:03:29.881  INFO 44824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-25 15:03:29.882  INFO 44824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-25 15:03:30.064  INFO 44824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-25 15:03:30.064  INFO 44824 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2669 ms
+2020-02-25 15:03:30.265  INFO 44824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-25 15:03:31.094  INFO 44824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-25 15:03:31.155  INFO 44824 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-02-25 15:03:31.296  INFO 44824 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.15.Final}
+2020-02-25 15:03:31.298  INFO 44824 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-02-25 15:03:31.540  INFO 44824 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-02-25 15:03:31.724  INFO 44824 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-02-25 15:03:32.690  INFO 44824 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-25 15:03:33.074  INFO 44824 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-25 15:03:33.164  WARN 44824 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-25 15:03:33.497  INFO 44824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3333 (http) with context path ''
+2020-02-25 15:03:33.501  INFO 44824 --- [main] com.infy.chessapi.ApiApplication         : Started ApiApplication in 7.038 seconds (JVM running for 7.554)
+2020-02-25 15:03:38.046  INFO 44824 --- [http-nio-3333-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-25 15:03:38.047  INFO 44824 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-25 15:03:38.058  INFO 44824 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-02-25 15:05:23.813  INFO 64080 --- [main] com.infy.chessapi.ApiApplication         : Starting ApiApplication on BLRKEC149273L with PID 64080 (C:\Users\andy.dearing\Desktop\Chess\API\target\classes started by andy.dearing in C:\Users\andy.dearing\Desktop\Chess\API)
+2020-02-25 15:05:23.818  INFO 64080 --- [main] com.infy.chessapi.ApiApplication         : No active profile set, falling back to default profiles: default
+2020-02-25 15:05:25.044  INFO 64080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-02-25 15:05:25.080  INFO 64080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 JPA repository interfaces.
+2020-02-25 15:05:25.651  INFO 64080 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$aca313af] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-25 15:05:26.241  INFO 64080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3333 (http)
+2020-02-25 15:05:26.282  INFO 64080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-25 15:05:26.283  INFO 64080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-25 15:05:26.451  INFO 64080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-25 15:05:26.451  INFO 64080 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2529 ms
+2020-02-25 15:05:26.667  INFO 64080 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-25 15:05:27.516  INFO 64080 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-25 15:05:27.582  INFO 64080 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-02-25 15:05:27.703  INFO 64080 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.15.Final}
+2020-02-25 15:05:27.707  INFO 64080 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-02-25 15:05:27.986  INFO 64080 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-02-25 15:05:28.152  INFO 64080 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-02-25 15:05:29.155  INFO 64080 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-25 15:05:29.541  INFO 64080 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-25 15:05:29.603  WARN 64080 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-25 15:05:29.922  INFO 64080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3333 (http) with context path ''
+2020-02-25 15:05:29.927  INFO 64080 --- [main] com.infy.chessapi.ApiApplication         : Started ApiApplication in 6.879 seconds (JVM running for 7.406)
+2020-02-25 15:05:34.346  INFO 64080 --- [http-nio-3333-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-25 15:05:34.347  INFO 64080 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-25 15:05:34.359  INFO 64080 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-02-25 15:05:49.331 ERROR 64080 --- [http-nio-3333-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at java.util.concurrent.ConcurrentHashMap.get(ConcurrentHashMap.java:936) ~[na:1.8.0_202]
+	at org.apache.catalina.core.ApplicationContext.getInitParameter(ApplicationContext.java:309) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationContextFacade.getInitParameter(ApplicationContextFacade.java:355) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.context.support.ServletContextPropertySource.getProperty(ServletContextPropertySource.java:47) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.context.support.ServletContextPropertySource.getProperty(ServletContextPropertySource.java:33) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getProperty(PropertySourcesPropertyResolver.java:85) ~[spring-core-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getProperty(PropertySourcesPropertyResolver.java:62) ~[spring-core-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.core.env.AbstractEnvironment.getProperty(AbstractEnvironment.java:539) ~[spring-core-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at com.infy.chessapi.api.ChessAPI.getGame(ChessAPI.java:82) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:798) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.1.13.RELEASE.jar:5.1.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_202]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_202]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:813) [na:1.8.0_202]
+
+2020-02-25 15:08:38.134  INFO 85040 --- [main] com.infy.chessapi.ApiApplication         : Starting ApiApplication on BLRKEC149273L with PID 85040 (C:\Users\andy.dearing\Desktop\Chess\API\target\classes started by andy.dearing in C:\Users\andy.dearing\Desktop\Chess\API)
+2020-02-25 15:08:38.138  INFO 85040 --- [main] com.infy.chessapi.ApiApplication         : No active profile set, falling back to default profiles: default
+2020-02-25 15:08:39.330  INFO 85040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-02-25 15:08:39.371  INFO 85040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 0 JPA repository interfaces.
+2020-02-25 15:08:39.960  INFO 85040 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c71b3e7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-25 15:08:40.608  INFO 85040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3333 (http)
+2020-02-25 15:08:40.648  INFO 85040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-25 15:08:40.649  INFO 85040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-25 15:08:40.847  INFO 85040 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-25 15:08:40.848  INFO 85040 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2626 ms
+2020-02-25 15:08:41.077  INFO 85040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-25 15:08:41.946  INFO 85040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-25 15:08:42.028  INFO 85040 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-02-25 15:08:42.173  INFO 85040 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.15.Final}
+2020-02-25 15:08:42.176  INFO 85040 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-02-25 15:08:42.427  INFO 85040 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-02-25 15:08:42.630  INFO 85040 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-02-25 15:08:43.561  INFO 85040 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-25 15:08:43.948  INFO 85040 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-25 15:08:44.009  WARN 85040 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-25 15:08:44.356  INFO 85040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3333 (http) with context path ''
+2020-02-25 15:08:44.359  INFO 85040 --- [main] com.infy.chessapi.ApiApplication         : Started ApiApplication in 6.998 seconds (JVM running for 7.523)
+2020-02-25 15:08:48.012  INFO 85040 --- [http-nio-3333-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-25 15:08:48.014  INFO 85040 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-25 15:08:48.024  INFO 85040 --- [http-nio-3333-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms

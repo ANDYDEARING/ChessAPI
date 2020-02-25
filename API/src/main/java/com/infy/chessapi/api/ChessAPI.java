@@ -67,4 +67,18 @@ public class ChessAPI {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
 	}
+	
+	@GetMapping(value = "getgame/{authToken}/{gameId}")
+	public ResponseEntity<BoardState> getGame(
+			@PathVariable("authToken") String authToken, @PathVariable("gameId") String gameId) throws Exception {
+		try{
+			
+			BoardState game = chessService.getGame(authToken,gameId);
+			
+			return new ResponseEntity<BoardState>(game, HttpStatus.OK);			
+		}
+		catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+	}
 }

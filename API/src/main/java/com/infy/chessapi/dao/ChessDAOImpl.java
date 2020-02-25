@@ -25,7 +25,7 @@ public class ChessDAOImpl implements ChessDAO {
 	
 	@Override
 	public BoardState getBoardState(String gameId) {
-		BoardStateEntity boardEntity = entityManager.find(BoardStateEntity.class, gameId);
+		BoardStateEntity boardEntity = entityManager.find(BoardStateEntity.class, Integer.parseInt(gameId));
 		BoardState result = null;
 		if(boardEntity != null){
 			result = new BoardState();
