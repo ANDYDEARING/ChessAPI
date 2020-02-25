@@ -186,7 +186,7 @@ public class ChessServiceImpl implements ChessService{
 		String passwordFromDB = chessDAO.getPassword(username);
 		if(passwordFromDB!=null){
 			if(SecureHashUtility.getHashValue(password).equals(passwordFromDB)){
-				authToken = SecureHashUtility.getHashValue(username);
+				authToken = username + "-token";
 			}
 			else{
 				throw new Exception ("ChessService.INVALID_CREDENTIALS");				
@@ -195,6 +195,16 @@ public class ChessServiceImpl implements ChessService{
 			throw new Exception ("ChessService.INVALID_CREDENTIALS");
 		}
 		return authToken;
+	}
+
+	@Override
+	public List<BoardState> getGames(String authToken) throws Exception{
+		String username = chessDAO.getUserFromToken(authToken);
+		if(username != null){
+			return chessDAO.getGames(username);
+		} else {
+			throw new Exception("ChessService.INVALID_TOKEN");			
+		}
 	}
 
 }

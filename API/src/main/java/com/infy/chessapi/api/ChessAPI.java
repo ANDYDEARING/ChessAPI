@@ -1,5 +1,7 @@
 package com.infy.chessapi.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.chessapi.model.User;
+import com.infy.chessapi.model.BoardState;
 import com.infy.chessapi.service.ChessService;
 
 
@@ -40,7 +43,8 @@ public class ChessAPI {
 	}
 	
 	@PostMapping(value = "login")
-	public ResponseEntity<String> authenticateCustomer(@RequestBody User user) throws Exception {
+	public ResponseEntity<String> authenticateUser(@RequestBody User user) throws Exception {
+
 		try {
 			String authToken = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
 
@@ -48,6 +52,19 @@ public class ChessAPI {
 			
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, environment.getProperty(e.getMessage()));
+		}
+	}
+
+	@GetMapping(value = "games/{authToken}")
+	public ResponseEntity<List<BoardState>> getGames(@PathVariable("authToken") String authToken) throws Exception {
+		try{
+			
+			List<BoardState> boardStubList = chessService.getGames(authToken);
+			
+			return new ResponseEntity<List<BoardState>>(boardStubList, HttpStatus.OK);			
+		}
+		catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
 	}
 }

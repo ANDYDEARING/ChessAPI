@@ -61,19 +61,27 @@ public class ChessDAOImpl implements ChessDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<BoardState> getGames(String user) {
-		List<BoardState> resultList = null;
+	public List<BoardState> getGames(String username) {
+		List<BoardState> resultStubList = new ArrayList<BoardState>();
 		Query query = entityManager.createQuery(
-				"select b from board_state b where b.black_user=:user or b.white_user=:user");
-		query.setParameter("user", user);
-		resultList = query.getResultList();
-		return resultList;
+				"select b from BoardStateEntity b where b.blackUser.username=:username or b.whiteUser.username=:username");
+		query.setParameter("username", username);
+		List<BoardStateEntity>resultEntityList = query.getResultList();
+		for(int i=0;i<resultEntityList.size();i++){
+			BoardState boardStub = new BoardState();
+			boardStub.setBlackUser(resultEntityList.get(i).getBlackUser().getUsername());
+			boardStub.setWhiteUser(resultEntityList.get(i).getWhiteUser().getUsername());
+			boardStub.setGameID(resultEntityList.get(i).getGameID());
+			boardStub.setIsWhiteTurn(resultEntityList.get(i).getIsWhiteTurn());
+			boardStub.setLastMove(resultEntityList.get(i).getLastMove());
+			resultStubList.add(boardStub);
+		}
+		return resultStubList;
 	}
 
 	@Override
 	public String getUserFromToken(String authToken) {
-		// TODO Auto-generated method stub
-		return null;
+		return authToken.split("-")[0];
 	}
 
 	@Override
