@@ -81,7 +81,13 @@ public class ChessDAOImpl implements ChessDAO {
 
 	@Override
 	public String getUserFromToken(String authToken) {
-		return authToken.split("-")[0];
+		String username = authToken.split("-")[0];
+		UserEntity userEntity = entityManager.find(UserEntity.class, username);
+		if(userEntity != null){
+			return userEntity.getUsername();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
