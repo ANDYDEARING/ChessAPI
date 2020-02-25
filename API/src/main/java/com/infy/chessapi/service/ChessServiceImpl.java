@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.infy.chessapi.dao.ChessDAO;
 import com.infy.chessapi.model.BoardState;
 import com.infy.chessapi.model.User;
+import com.infy.chessapi.utility.SecureHashUtility;
 
 
 @Service(value = "chessService")
@@ -180,14 +181,12 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public User authenticateCustomer(String username, String password) throws Exception {
-		User user = null;
+	public String authenticateCustomer(String username, String password) throws Exception {
+		String authToken = null;
 		String passwordFromDB = chessDAO.getPassword(username);
 		if(passwordFromDB!=null){
-			if(password.equals(passwordFromDB)){
-				user = new User();
-				user.setUsername(username);
-				user.setPassword(password);
+			if(SecureHashUtility.getHashValue(password).equals(passwordFromDB)){
+				authToken = SecureHashUtility.getHashValue(username);
 			}
 			else{
 				throw new Exception ("ChessService.INVALID_CREDENTIALS");				
@@ -195,7 +194,7 @@ public class ChessServiceImpl implements ChessService{
 		} else {
 			throw new Exception ("ChessService.INVALID_CREDENTIALS");
 		}
-		return user;
+		return authToken;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.infy.chessapi.dao;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import com.infy.chessapi.entity.BoardStateEntity;
 import com.infy.chessapi.entity.PieceEntity;
 import com.infy.chessapi.entity.UserEntity;
 import com.infy.chessapi.model.BoardState;
+import com.infy.chessapi.utility.SecureHashUtility;
 
 @Repository(value = "ChessDAO")
 public class ChessDAOImpl implements ChessDAO {
@@ -106,7 +108,11 @@ public class ChessDAOImpl implements ChessDAO {
 			for(int i=0;i<usernames.size();i++){
 				UserEntity user = new UserEntity();
 				user.setUsername(usernames.get(i));
-				user.setPassword(passwords.get(i));
+				try {
+					user.setPassword(SecureHashUtility.getHashValue(passwords.get(i)));
+				} catch (NoSuchAlgorithmException e) {
+					e.printStackTrace();
+				}
 				entityManager.persist(user);
 			}
 			for(int i=0;i<boardStates.size();i++){

@@ -40,11 +40,11 @@ public class ChessAPI {
 	}
 	
 	@PostMapping(value = "login")
-	public ResponseEntity<User> authenticateCustomer(@RequestBody User user) throws Exception {
+	public ResponseEntity<String> authenticateCustomer(@RequestBody User user) throws Exception {
 		try {
-			User userFromDB = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
+			String authToken = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
 
-			return new ResponseEntity<User>(userFromDB, HttpStatus.OK);
+			return new ResponseEntity<String>(authToken, HttpStatus.OK);
 			
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, environment.getProperty(e.getMessage()));
