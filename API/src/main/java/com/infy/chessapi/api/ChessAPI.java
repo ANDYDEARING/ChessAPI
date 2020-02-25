@@ -47,7 +47,7 @@ public class ChessAPI {
 			return new ResponseEntity<User>(userFromDB, HttpStatus.OK);
 			
 		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, environment.getProperty(e.getMessage()));
 		}
 	}
 }
