@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.infy.chessapi.dao.ChessDAO;
 import com.infy.chessapi.model.BoardState;
+import com.infy.chessapi.model.User;
 
 
 @Service(value = "chessService")
@@ -176,6 +177,25 @@ public class ChessServiceImpl implements ChessService{
 		chessDAO.populateTestData(usernames, passwords, boardStates);
 		
 		return true;
+	}
+
+	@Override
+	public User authenticateCustomer(String username, String password) throws Exception {
+		User user = null;
+		String passwordFromDB = chessDAO.getPassword(username);
+		if(passwordFromDB!=null){
+			if(password.equals(passwordFromDB)){
+				user = new User();
+				user.setUsername(username);
+				user.setPassword(password);
+			}
+			else{
+				throw new Exception ("ChessService.INVALID_CREDENTIALS");				
+			}
+		} else {
+			throw new Exception ("ChessService.INVALID_CREDENTIALS");
+		}
+		return user;
 	}
 
 }
