@@ -199,13 +199,13 @@ public class ChessServiceImpl implements ChessService{
 
 	@Override
 	public List<BoardState> getGames(String authToken) throws Exception{
-			String username = authenticateAuthToken(authToken);
+			String username = getUsernameFromToken(authToken);
 			return chessDAO.getGames(username);
 	}
 
 	@Override
-	public BoardState getGame(String authToken, String gameId) throws Exception{
-		String username = authenticateAuthToken(authToken);
+	public BoardState getGame(String authToken, Integer gameId) throws Exception{
+		String username = getUsernameFromToken(authToken);
 		BoardState boardState = chessDAO.getBoardState(gameId);
 		if(boardState != null){
 			if(boardState.getBlackUser()==username || boardState.getWhiteUser()==username){
@@ -219,12 +219,60 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public String authenticateAuthToken(String authToken) throws Exception{
+	public String getUsernameFromToken(String authToken) throws Exception{
 		String username = chessDAO.getUserFromToken(authToken);
 		if(username != null){
 			return username;
 		} else {
 			throw new Exception("ChessService.INVALID_TOKEN");			
+		}
+	}
+
+	@Override
+	public Boolean makeMove(String authToken, BoardState boardState) throws Exception{
+		String username = getUsernameFromToken(authToken);
+		
+		BoardState previousState = chessDAO.getBoardState(boardState.getGameID());
+		
+		if(verifyMove(username, previousState, boardState)){
+			chessDAO.updateBoardState(boardState);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public Boolean verifyMove(String username, BoardState previousState, BoardState newState) throws Exception {
+		//TODO just checks differences, board attributes, and users, doesn't check the validity of the move itself - yet
+		if(		(previousState.getIsWhiteTurn()==newState.getIsWhiteTurn()) &&
+				(previousState.getWhiteUser().equals(newState.getWhiteUser())) &&
+				(previousState.getBlackUser().equals(newState.getBlackUser())) &&
+				(previousState.getGameID()==newState.getGameID())
+			){
+			Integer differences = 0;
+			for(int i=0;i<previousState.getPiecesList().length;i++){
+				if(
+						(!previousState.getPiecesList()[i][0].equals(newState.getPiecesList()[i][0])) ||
+						(!previousState.getPiecesList()[i][1].equals(newState.getPiecesList()[i][1])) ||
+						(!previousState.getPiecesList()[i][2].equals(newState.getPiecesList()[i][2])) ||
+						(!previousState.getPiecesList()[i][3].equals(newState.getPiecesList()[i][3]))
+								){
+					differences++;
+				}
+			}
+			if(differences != 1 && differences != 2){
+				return false;
+			} else if(
+					(previousState.getIsWhiteTurn() && previousState.getWhiteUser().equals(username)) ||
+					(!previousState.getIsWhiteTurn() && previousState.getBlackUser().equals(username))
+					){
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
 		}
 	}
 }

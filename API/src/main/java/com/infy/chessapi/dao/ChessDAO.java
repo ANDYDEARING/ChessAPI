@@ -7,7 +7,7 @@ import com.infy.chessapi.model.BoardState;
 
 public interface ChessDAO {
 
-	public BoardState getBoardState(String gameId);
+	public BoardState getBoardState(Integer gameId);
 	public String getPassword(String username);
 	public List<BoardState> getGames(String user);
 	public String getUserFromToken(String authToken);

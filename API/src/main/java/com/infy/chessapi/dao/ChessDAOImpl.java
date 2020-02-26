@@ -24,8 +24,8 @@ public class ChessDAOImpl implements ChessDAO {
 	private EntityManager entityManager;
 	
 	@Override
-	public BoardState getBoardState(String gameId) {
-		BoardStateEntity boardEntity = entityManager.find(BoardStateEntity.class, Integer.parseInt(gameId));
+	public BoardState getBoardState(Integer gameId) {
+		BoardStateEntity boardEntity = entityManager.find(BoardStateEntity.class, gameId);
 		BoardState result = null;
 		if(boardEntity != null){
 			result = new BoardState();
@@ -92,8 +92,32 @@ public class ChessDAOImpl implements ChessDAO {
 
 	@Override
 	public Boolean updateBoardState(BoardState board) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardStateEntity boardEntity = entityManager.find(BoardStateEntity.class, board.getGameID());
+		if(boardEntity != null){
+			
+			boardEntity.setIsWhiteTurn(!board.getIsWhiteTurn());
+			boardEntity.setLastMove(LocalDate.now());
+			
+			PieceEntity[] pieceEntityList = boardEntity.getPiecesList();
+			String[][] pieceStringList = board.getPiecesList();
+			for(int i=0;i<pieceEntityList.length;i++){
+				PieceEntity piece = entityManager.find(PieceEntity.class, pieceEntityList[i].getPieceID());
+				String xCoordString = pieceStringList[i][2];
+				if(xCoordString!=null){
+					piece.setxCoord(Integer.parseInt(xCoordString));
+					piece.setyCoord(Integer.parseInt(pieceStringList[i][3]));
+					entityManager.persist(piece);
+				} else {
+					piece.setxCoord(null);
+					piece.setyCoord(null);
+					entityManager.persist(piece);
+				}
+			}
+			entityManager.persist(boardEntity);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override

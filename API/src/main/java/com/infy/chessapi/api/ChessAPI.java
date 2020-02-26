@@ -73,11 +73,27 @@ public class ChessAPI {
 			@PathVariable("authToken") String authToken, @PathVariable("gameId") String gameId) throws Exception {
 		try{
 			
-			BoardState game = chessService.getGame(authToken,gameId);
+			BoardState game = chessService.getGame(authToken,Integer.parseInt(gameId));
 			
 			return new ResponseEntity<BoardState>(game, HttpStatus.OK);			
 		}
 		catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+	}
+	
+	@PostMapping(value = "submit/{authToken}")
+	public ResponseEntity<Boolean> submitMove(
+			@PathVariable("authToken") String authToken, 
+			@RequestBody BoardState boardState) throws Exception {
+
+		try {
+			Boolean result = chessService.makeMove(authToken, boardState);
+			
+			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
 	}

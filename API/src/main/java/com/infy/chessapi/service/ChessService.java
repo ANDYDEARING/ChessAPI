@@ -11,7 +11,11 @@ public interface ChessService {
 
 	public List<BoardState> getGames(String authToken) throws Exception;
 
-	public BoardState getGame(String authToken, String gameId) throws Exception;
+	public BoardState getGame(String authToken, Integer gameId) throws Exception;
 
-	public String authenticateAuthToken(String authToken) throws Exception;
+	public String getUsernameFromToken(String authToken) throws Exception;
+
+	public Boolean makeMove(String authToken, BoardState boardState) throws Exception;
+	
+	public Boolean verifyMove(String username, BoardState previousState, BoardState newState) throws Exception;
 }
