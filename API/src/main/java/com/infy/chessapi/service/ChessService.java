@@ -18,4 +18,6 @@ public interface ChessService {
 	public Boolean makeMove(String authToken, BoardState boardState) throws Exception;
 	
 	public Boolean verifyMove(String username, BoardState previousState, BoardState newState) throws Exception;
+
+	public Boolean startGame(String authToken, String targetUserName) throws Exception;
 }

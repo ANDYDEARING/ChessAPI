@@ -121,21 +121,31 @@ public class ChessDAOImpl implements ChessDAO {
 	}
 
 	@Override
-	public Boolean createGame(BoardState board) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean createGame(BoardState boardState) {
+		BoardStateEntity boardEntity = new BoardStateEntity();
+		boardEntity.setBlackUser(entityManager.find(UserEntity.class, boardState.getBlackUser()));
+		boardEntity.setWhiteUser(entityManager.find(UserEntity.class, boardState.getWhiteUser()));
+		boardEntity.setIsWhiteTurn(boardState.getIsWhiteTurn());
+		boardEntity.setLastMove(boardState.getLastMove());
+		PieceEntity[] pieceEntityList = new PieceEntity[32];
+		String[][] piecesStringList = boardState.getPiecesList();
+		for(int j=0;j<piecesStringList.length;j++){
+			PieceEntity pieceEntity = new PieceEntity();
+			pieceEntity.setColor(piecesStringList[j][0]);
+			pieceEntity.setName(piecesStringList[j][1]);
+			pieceEntity.setxCoord(Integer.parseInt(piecesStringList[j][2]));
+			pieceEntity.setyCoord(Integer.parseInt(piecesStringList[j][3]));
+			pieceEntityList[j] = pieceEntity;
+		}
+		boardEntity.setPiecesList(pieceEntityList);			
+		entityManager.persist(boardEntity);					
+		return true;
 	}
 
 	@Override
-	public List<BoardState> getBoardStatesAfter(LocalDate timestamp, String user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUserFromID(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean verifyUserExists(String username) {
+		UserEntity userEntity = entityManager.find(UserEntity.class, username);
+		return userEntity!=null;
 	}
 	
 	@Override
@@ -171,11 +181,7 @@ public class ChessDAOImpl implements ChessDAO {
 					pieceEntityList[j] = pieceEntity;
 				}
 				boardEntity.setPiecesList(pieceEntityList);
-				try{
-					entityManager.persist(boardEntity);					
-				} catch (Exception e){
-					System.out.println(e.getMessage());
-				}
+				entityManager.persist(boardEntity);					
 			}
 		}
 		return true;

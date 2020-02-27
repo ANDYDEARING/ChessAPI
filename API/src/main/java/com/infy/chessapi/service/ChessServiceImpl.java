@@ -275,4 +275,156 @@ public class ChessServiceImpl implements ChessService{
 			return false;
 		}
 	}
+
+	@Override
+	public Boolean startGame(String authToken, String targetUserName) throws Exception {
+		
+		String username = getUsernameFromToken(authToken);
+		
+		if(username!=null && chessDAO.verifyUserExists(targetUserName) && !username.equals(targetUserName)){
+			
+			BoardState boardState = new BoardState();
+			
+			boardState.setWhiteUser(username);
+			boardState.setBlackUser(targetUserName);
+			boardState.setLastMove(LocalDate.now());
+			boardState.setIsWhiteTurn(true);
+			
+			String[][] piecesList = new String[32][4];
+			for(int i=0;i<8;i++){
+				String[] piece = new String[4];
+				piece[0]="WHITE";
+				piece[1]="PAWN";
+				piece[2]=Integer.toString(i);
+				piece[3]="6";
+				piecesList[i]=piece;
+			}
+			for(int i=8;i<16;i++){
+				String[] piece = new String[4];
+				piece[0]="BLACK"; 
+				piece[1]="PAWN";
+				piece[2]=Integer.toString(i);
+				piece[3]="1";
+				piecesList[i]=piece;
+			}
+			
+			String[] piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="ROOK"; 
+			piece[2]="0"; 
+			piece[3]="7";
+			piecesList[16] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="ROOK"; 
+			piece[2]="7"; 
+			piece[3]="7";
+			piecesList[17] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="ROOK"; 
+			piece[2]="0"; 
+			piece[3]="0";
+			piecesList[18] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="ROOK"; 
+			piece[2]="7"; 
+			piece[3]="0";
+			piecesList[19] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="KNIGHT"; 
+			piece[2]="1"; 
+			piece[3]="0";
+			piecesList[20] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="KNIGHT"; 
+			piece[2]="6"; 
+			piece[3]="0";
+			piecesList[21] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="KNIGHT"; 
+			piece[2]="1"; 
+			piece[3]="7";
+			piecesList[22] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="KNIGHT"; 
+			piece[2]="6"; 
+			piece[3]="7";
+			piecesList[23] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="BISHOP"; 
+			piece[2]="2"; 
+			piece[3]="0";
+			piecesList[24] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="BISHOP"; 
+			piece[2]="5"; 
+			piece[3]="0";
+			piecesList[25] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="BISHOP"; 
+			piece[2]="2"; 
+			piece[3]="7";
+			piecesList[26] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="BISHOP"; 
+			piece[2]="5"; 
+			piece[3]="7";
+			piecesList[27] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="QUEEN"; 
+			piece[2]="3"; 
+			piece[3]="7";
+			piecesList[28] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="QUEEN"; 
+			piece[2]="3"; 
+			piece[3]="0";
+			piecesList[29] = piece;
+			
+			piece = new String[4];
+			piece[0]="WHITE"; 
+			piece[1]="KING"; 
+			piece[2]="4"; 
+			piece[3]="7";
+			piecesList[30] = piece;
+			
+			piece = new String[4];
+			piece[0]="BLACK"; 
+			piece[1]="KING"; 
+			piece[2]="4"; 
+			piece[3]="0";
+			piecesList[31] = piece;
+			
+			boardState.setPiecesList(piecesList);
+			
+			return chessDAO.createGame(boardState);
+		} else {
+			return false;
+		}
+	}
 }

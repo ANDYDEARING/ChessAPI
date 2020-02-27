@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,6 +90,21 @@ public class ChessAPI {
 
 		try {
 			Boolean result = chessService.makeMove(authToken, boardState);
+			
+			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+	}
+	
+	@PutMapping(value= "startgame/{authToken}/{targetUserName}")
+	public ResponseEntity<Boolean> startGame(
+			@PathVariable("authToken") String authToken, 
+			@PathVariable("targetUserName") String targetUserName){
+		
+		try {
+			Boolean result = chessService.startGame(authToken, targetUserName);
 			
 			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 			
