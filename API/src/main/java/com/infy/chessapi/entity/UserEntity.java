@@ -1,8 +1,11 @@
 package com.infy.chessapi.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,10 @@ public class UserEntity {
 	
 	@Column(name="PASSWORD")
 	private String password;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(unique=true)
+	private TokenEntity token;
 
 	public String getUsername() {
 		return username;
@@ -30,6 +37,14 @@ public class UserEntity {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public TokenEntity getToken() {
+		return token;
+	}
+
+	public void setToken(TokenEntity token) {
+		this.token = token;
 	}
 	
 }
