@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -56,8 +57,8 @@ public class ChessAPI {
 		}
 	}
 
-	@GetMapping(value = "games/{authToken}")
-	public ResponseEntity<List<BoardState>> getGames(@PathVariable("authToken") String authToken) throws Exception {
+	@GetMapping(value = "games")
+	public ResponseEntity<List<BoardState>> getGames(@RequestHeader("auth-token") String authToken) throws Exception {
 		try{
 			
 			List<BoardState> boardStubList = chessService.getGames(authToken);
@@ -69,9 +70,9 @@ public class ChessAPI {
 		}
 	}
 	
-	@GetMapping(value = "getgame/{authToken}/{gameId}")
+	@GetMapping(value = "getgame/{gameId}")
 	public ResponseEntity<BoardState> getGame(
-			@PathVariable("authToken") String authToken, @PathVariable("gameId") String gameId) throws Exception {
+			@RequestHeader("auth-token") String authToken, @PathVariable("gameId") String gameId) throws Exception {
 		try{
 			
 			BoardState game = chessService.getGame(authToken,Integer.parseInt(gameId));
@@ -83,9 +84,9 @@ public class ChessAPI {
 		}
 	}
 	
-	@PostMapping(value = "submit/{authToken}")
+	@PostMapping(value = "submit")
 	public ResponseEntity<Boolean> submitMove(
-			@PathVariable("authToken") String authToken, 
+			@RequestHeader("auth-token") String authToken, 
 			@RequestBody BoardState boardState) throws Exception {
 
 		try {
@@ -98,9 +99,9 @@ public class ChessAPI {
 		}
 	}
 	
-	@PutMapping(value= "startgame/{authToken}/{targetUserName}")
+	@PutMapping(value= "startgame/{targetUserName}")
 	public ResponseEntity<Boolean> startGame(
-			@PathVariable("authToken") String authToken, 
+			@RequestHeader("auth-token") String authToken,
 			@PathVariable("targetUserName") String targetUserName){
 		
 		try {
