@@ -2,34 +2,32 @@ package com.infy.chessapi.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TOKEN")
-public class TokenEntity {
+@Table(name="SESSION")
+public class SessionEntity {
 
 	@Id
-	@Column(name="TOKEN")
-	private String token;
+	@Column(name="SESSION_ID")
+	private String sessionId;
 	
-	@OneToOne(mappedBy = "token")
+	@OneToOne(mappedBy = "session")
 	private UserEntity user;
 	
 	@Column(name="EXPIRATION")
 	private LocalDate expiration;
 
-	public String getToken() {
-		return token;
+	public String getSessionId() {
+		return sessionId;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 
 	public UserEntity getUser() {

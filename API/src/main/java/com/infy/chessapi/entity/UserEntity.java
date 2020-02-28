@@ -21,7 +21,7 @@ public class UserEntity {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(unique=true)
-	private TokenEntity token;
+	private SessionEntity session;
 
 	public String getUsername() {
 		return username;
@@ -39,12 +39,12 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public TokenEntity getToken() {
-		return token;
+	public SessionEntity getSession() {
+		return session;
 	}
 
-	public void setToken(TokenEntity token) {
-		this.token = token;
+	public void setSession(SessionEntity session) {
+		this.session = session;
 	}
 	
 }
