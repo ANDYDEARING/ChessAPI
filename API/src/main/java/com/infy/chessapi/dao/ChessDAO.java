@@ -9,7 +9,7 @@ public interface ChessDAO {
 	public BoardState getBoardState(Integer gameId);
 	public String getPassword(String username);
 	public List<BoardState> getGames(String user);
-	public String getUserFromToken(String authToken);
+	public String getUserFromSessionId(String sessionId);
 	public Boolean updateBoardState(BoardState board);
 	public Boolean createGame(BoardState board);
 	public Boolean verifyUserExists(String username);

@@ -9,15 +9,15 @@ public interface ChessService {
 
 	public String authenticateCustomer(String username, String password) throws Exception;
 
-	public List<BoardState> getGames(String authToken) throws Exception;
+	public List<BoardState> getGames(String sessionId) throws Exception;
 
-	public BoardState getGame(String authToken, Integer gameId) throws Exception;
+	public BoardState getGame(String sessionId, Integer gameId) throws Exception;
 
-	public String getUsernameFromToken(String authToken) throws Exception;
+	public String getUsernameFromSessionId(String sessionId) throws Exception;
 
-	public Boolean makeMove(String authToken, BoardState boardState) throws Exception;
+	public Boolean makeMove(String sessionId, BoardState boardState) throws Exception;
 	
 	public Boolean verifyMove(String username, BoardState previousState, BoardState newState) throws Exception;
 
-	public Boolean startGame(String authToken, String targetUserName) throws Exception;
+	public Boolean startGame(String sessionId, String targetUserName) throws Exception;
 }

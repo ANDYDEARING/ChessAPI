@@ -182,11 +182,11 @@ public class ChessServiceImpl implements ChessService{
 
 	@Override
 	public String authenticateCustomer(String username, String password) throws Exception {
-		String authToken = null;
+		String sessionId = null;
 		String passwordFromDB = chessDAO.getPassword(username);
 		if(passwordFromDB!=null){
 			if(SecureHashUtility.getHashValue(password).equals(passwordFromDB)){
-				authToken = username + "-token";
+				sessionId = username + "-token";
 			}
 			else{
 				throw new Exception ("ChessService.INVALID_CREDENTIALS");				
@@ -194,18 +194,18 @@ public class ChessServiceImpl implements ChessService{
 		} else {
 			throw new Exception ("ChessService.INVALID_CREDENTIALS");
 		}
-		return authToken;
+		return sessionId;
 	}
 
 	@Override
-	public List<BoardState> getGames(String authToken) throws Exception{
-			String username = getUsernameFromToken(authToken);
+	public List<BoardState> getGames(String sessionId) throws Exception{
+			String username = getUsernameFromSessionId(sessionId);
 			return chessDAO.getGames(username);
 	}
 
 	@Override
-	public BoardState getGame(String authToken, Integer gameId) throws Exception{
-		String username = getUsernameFromToken(authToken);
+	public BoardState getGame(String sessionId, Integer gameId) throws Exception{
+		String username = getUsernameFromSessionId(sessionId);
 		BoardState boardState = chessDAO.getBoardState(gameId);
 		if(boardState != null){
 			if(boardState.getBlackUser()==username || boardState.getWhiteUser()==username){
@@ -219,8 +219,8 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public String getUsernameFromToken(String authToken) throws Exception{
-		String username = chessDAO.getUserFromToken(authToken);
+	public String getUsernameFromSessionId(String sessionId) throws Exception{
+		String username = chessDAO.getUserFromSessionId(sessionId);
 		if(username != null){
 			return username;
 		} else {
@@ -229,8 +229,8 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public Boolean makeMove(String authToken, BoardState boardState) throws Exception{
-		String username = getUsernameFromToken(authToken);
+	public Boolean makeMove(String sessionId, BoardState boardState) throws Exception{
+		String username = getUsernameFromSessionId(sessionId);
 		
 		BoardState previousState = chessDAO.getBoardState(boardState.getGameID());
 		
@@ -277,9 +277,9 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public Boolean startGame(String authToken, String targetUserName) throws Exception {
+	public Boolean startGame(String sessionId, String targetUserName) throws Exception {
 		
-		String username = getUsernameFromToken(authToken);
+		String username = getUsernameFromSessionId(sessionId);
 		
 		if(username!=null && chessDAO.verifyUserExists(targetUserName) && !username.equals(targetUserName)){
 			

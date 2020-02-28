@@ -48,9 +48,9 @@ public class ChessAPI {
 	public ResponseEntity<String> authenticateUser(@RequestBody User user) throws Exception {
 
 		try {
-			String authToken = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
+			String sessionId = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
 
-			return new ResponseEntity<String>(authToken, HttpStatus.OK);
+			return new ResponseEntity<String>(sessionId, HttpStatus.OK);
 			
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, environment.getProperty(e.getMessage()));
@@ -58,10 +58,10 @@ public class ChessAPI {
 	}
 
 	@GetMapping(value = "games")
-	public ResponseEntity<List<BoardState>> getGames(@RequestHeader("auth-token") String authToken) throws Exception {
+	public ResponseEntity<List<BoardState>> getGames(@RequestHeader("session-id") String sessionId) throws Exception {
 		try{
 			
-			List<BoardState> boardStubList = chessService.getGames(authToken);
+			List<BoardState> boardStubList = chessService.getGames(sessionId);
 			
 			return new ResponseEntity<List<BoardState>>(boardStubList, HttpStatus.OK);			
 		}
@@ -72,10 +72,10 @@ public class ChessAPI {
 	
 	@GetMapping(value = "getgame/{gameId}")
 	public ResponseEntity<BoardState> getGame(
-			@RequestHeader("auth-token") String authToken, @PathVariable("gameId") String gameId) throws Exception {
+			@RequestHeader("session-id") String sessionId, @PathVariable("gameId") String gameId) throws Exception {
 		try{
 			
-			BoardState game = chessService.getGame(authToken,Integer.parseInt(gameId));
+			BoardState game = chessService.getGame(sessionId,Integer.parseInt(gameId));
 			
 			return new ResponseEntity<BoardState>(game, HttpStatus.OK);			
 		}
@@ -86,11 +86,11 @@ public class ChessAPI {
 	
 	@PostMapping(value = "submit")
 	public ResponseEntity<Boolean> submitMove(
-			@RequestHeader("auth-token") String authToken, 
+			@RequestHeader("session-id") String sessionId, 
 			@RequestBody BoardState boardState) throws Exception {
 
 		try {
-			Boolean result = chessService.makeMove(authToken, boardState);
+			Boolean result = chessService.makeMove(sessionId, boardState);
 			
 			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 			
@@ -101,11 +101,11 @@ public class ChessAPI {
 	
 	@PutMapping(value= "startgame/{targetUserName}")
 	public ResponseEntity<Boolean> startGame(
-			@RequestHeader("auth-token") String authToken,
+			@RequestHeader("session-id") String sessionId,
 			@PathVariable("targetUserName") String targetUserName){
 		
 		try {
-			Boolean result = chessService.startGame(authToken, targetUserName);
+			Boolean result = chessService.startGame(sessionId, targetUserName);
 			
 			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 			
