@@ -2,6 +2,7 @@ package com.infy.chessapi.dao;
 
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.infy.chessapi.entity.BoardStateEntity;
 import com.infy.chessapi.entity.PieceEntity;
+import com.infy.chessapi.entity.SessionEntity;
 import com.infy.chessapi.entity.UserEntity;
 import com.infy.chessapi.model.BoardState;
 import com.infy.chessapi.utility.SecureHashUtility;
@@ -80,11 +82,14 @@ public class ChessDAOImpl implements ChessDAO {
 	}
 
 	@Override
-	public String getUserFromSessionId(String authToken) {
-		String username = authToken.split("-")[0];
-		UserEntity userEntity = entityManager.find(UserEntity.class, username);
-		if(userEntity != null){
-			return userEntity.getUsername();
+	public String getUserFromSessionId(String sessionId) {
+		SessionEntity sessionEntity = entityManager.find(SessionEntity.class, sessionId);
+		if(sessionEntity != null){
+			if(sessionEntity.getExpiration().isAfter(LocalDateTime.now())){
+				return sessionEntity.getUser().getUsername();				
+			} else {
+				return null;
+			}
 		} else {
 			return null;
 		}
@@ -185,6 +190,32 @@ public class ChessDAOImpl implements ChessDAO {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public String refreshSessionId(String username) {
+		try {
+			String sessionId = SecureHashUtility.getHashValue(username);
+			SessionEntity sessionEntity = entityManager.find(SessionEntity.class, sessionId);
+			if(sessionEntity==null){
+				sessionEntity = new SessionEntity();
+				UserEntity userEntity = entityManager.find(UserEntity.class, username);
+				if(userEntity!=null){
+					sessionEntity.setUser(userEntity);
+					sessionEntity.setSessionId(sessionId);
+					userEntity.setSession(sessionEntity);
+					entityManager.persist(userEntity);
+				} else {
+					return null;
+				}
+			}
+			sessionEntity.setExpiration(LocalDateTime.now().plusMinutes(10));
+			
+			entityManager.persist(sessionEntity);
+			return sessionId;
+		} catch (NoSuchAlgorithmException e){
+			return null;
+		}
 	}
 	
 }

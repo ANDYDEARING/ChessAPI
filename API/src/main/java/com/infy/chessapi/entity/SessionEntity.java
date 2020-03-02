@@ -1,6 +1,7 @@
 package com.infy.chessapi.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class SessionEntity {
 	private UserEntity user;
 	
 	@Column(name="EXPIRATION")
-	private LocalDate expiration;
+	private LocalDateTime expiration;
 
 	public String getSessionId() {
 		return sessionId;
@@ -38,12 +39,12 @@ public class SessionEntity {
 		this.user = user;
 	}
 
-	public LocalDate getExpiration() {
+	public LocalDateTime getExpiration() {
 		return expiration;
 	}
 
-	public void setExpiration(LocalDate expiration) {
-		this.expiration = expiration;
+	public void setExpiration(LocalDateTime localDateTime) {
+		this.expiration = localDateTime;
 	}
 	
 }

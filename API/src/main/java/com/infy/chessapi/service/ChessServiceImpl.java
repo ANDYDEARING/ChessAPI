@@ -186,7 +186,7 @@ public class ChessServiceImpl implements ChessService{
 		String passwordFromDB = chessDAO.getPassword(username);
 		if(passwordFromDB!=null){
 			if(SecureHashUtility.getHashValue(password).equals(passwordFromDB)){
-				sessionId = username + "-session-id";
+				sessionId = chessDAO.refreshSessionId(username);
 			}
 			else{
 				throw new Exception ("ChessService.INVALID_CREDENTIALS");				
@@ -222,6 +222,7 @@ public class ChessServiceImpl implements ChessService{
 	public String getUsernameFromSessionId(String sessionId) throws Exception{
 		String username = chessDAO.getUserFromSessionId(sessionId);
 		if(username != null){
+			chessDAO.refreshSessionId(username);
 			return username;
 		} else {
 			throw new Exception("ChessService.INVALID_TOKEN");			
