@@ -1,6 +1,7 @@
 package com.infy.chessapi.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class BoardStateEntity {
 	private UserEntity blackUser;
 	
 	@Column(name="LAST_MOVE")
-	private LocalDate lastMove;
+	private LocalDateTime lastMove;
 	
 	@Column(name="IS_WHITE_TURN")
 	private Boolean isWhiteTurn;
@@ -67,12 +68,12 @@ public class BoardStateEntity {
 		this.blackUser = blackUser;
 	}
 
-	public LocalDate getLastMove() {
+	public LocalDateTime getLastMove() {
 		return lastMove;
 	}
 
-	public void setLastMove(LocalDate lastMove) {
-		this.lastMove = lastMove;
+	public void setLastMove(LocalDateTime localDateTime) {
+		this.lastMove = localDateTime;
 	}
 
 	public Boolean getIsWhiteTurn() {

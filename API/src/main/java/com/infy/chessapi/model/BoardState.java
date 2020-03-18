@@ -1,13 +1,14 @@
 package com.infy.chessapi.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class BoardState {
 	
 	private String whiteUser;
 	private String blackUser;
 	private Integer gameID;
-	private LocalDate lastMove;
+	private LocalDateTime lastMove;
 	private Boolean isWhiteTurn;
 	private String[][] piecesList;
 	
@@ -30,11 +31,11 @@ public class BoardState {
 	public void setGameID(Integer gameID) {
 		this.gameID = gameID;
 	}
-	public LocalDate getLastMove() {
+	public LocalDateTime getLastMove() {
 		return lastMove;
 	}
-	public void setLastMove(LocalDate lastMove) {
-		this.lastMove = lastMove;
+	public void setLastMove(LocalDateTime localDateTime) {
+		this.lastMove = localDateTime;
 	}
 	public Boolean getIsWhiteTurn() {
 		return isWhiteTurn;

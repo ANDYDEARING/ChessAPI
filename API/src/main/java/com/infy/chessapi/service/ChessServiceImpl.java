@@ -1,6 +1,7 @@
 package com.infy.chessapi.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ChessServiceImpl implements ChessService{
 		
 		boardState1.setWhiteUser("user1");
 		boardState1.setBlackUser("user2");
-		boardState1.setLastMove(LocalDate.now());
+		boardState1.setLastMove(LocalDateTime.now());
 		boardState1.setIsWhiteTurn(true);
 		
 		String[][] piecesList = new String[32][4];
@@ -288,7 +289,7 @@ public class ChessServiceImpl implements ChessService{
 			
 			boardState.setWhiteUser(username);
 			boardState.setBlackUser(targetUserName);
-			boardState.setLastMove(LocalDate.now());
+			boardState.setLastMove(LocalDateTime.now());
 			boardState.setIsWhiteTurn(true);
 			
 			String[][] piecesList = new String[32][4];

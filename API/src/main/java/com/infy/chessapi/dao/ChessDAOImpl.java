@@ -101,7 +101,7 @@ public class ChessDAOImpl implements ChessDAO {
 		if(boardEntity != null){
 			
 			boardEntity.setIsWhiteTurn(!board.getIsWhiteTurn());
-			boardEntity.setLastMove(LocalDate.now());
+			boardEntity.setLastMove(LocalDateTime.now());
 			
 			PieceEntity[] pieceEntityList = boardEntity.getPiecesList();
 			String[][] pieceStringList = board.getPiecesList();
