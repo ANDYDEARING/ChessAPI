@@ -92,56 +92,56 @@ public class ChessServiceImpl implements ChessService{
 		piece[0]="WHITE"; 
 		piece[1]="KNIGHT"; 
 		piece[2]="1"; 
-		piece[3]="0";
+		piece[3]="7";
 		piecesList[20] = piece;
 		
 		piece = new String[4];
 		piece[0]="WHITE"; 
 		piece[1]="KNIGHT"; 
 		piece[2]="6"; 
-		piece[3]="0";
+		piece[3]="7";
 		piecesList[21] = piece;
 		
 		piece = new String[4];
 		piece[0]="BLACK"; 
 		piece[1]="KNIGHT"; 
 		piece[2]="1"; 
-		piece[3]="7";
+		piece[3]="0";
 		piecesList[22] = piece;
 		
 		piece = new String[4];
 		piece[0]="BLACK"; 
 		piece[1]="KNIGHT"; 
 		piece[2]="6"; 
-		piece[3]="7";
+		piece[3]="0";
 		piecesList[23] = piece;
 		
 		piece = new String[4];
 		piece[0]="WHITE"; 
 		piece[1]="BISHOP"; 
 		piece[2]="2"; 
-		piece[3]="0";
+		piece[3]="7";
 		piecesList[24] = piece;
 		
 		piece = new String[4];
 		piece[0]="WHITE"; 
 		piece[1]="BISHOP"; 
 		piece[2]="5"; 
-		piece[3]="0";
+		piece[3]="7";
 		piecesList[25] = piece;
 		
 		piece = new String[4];
 		piece[0]="BLACK"; 
 		piece[1]="BISHOP"; 
 		piece[2]="2"; 
-		piece[3]="7";
+		piece[3]="0";
 		piecesList[26] = piece;
 		
 		piece = new String[4];
 		piece[0]="BLACK"; 
 		piece[1]="BISHOP"; 
 		piece[2]="5"; 
-		piece[3]="7";
+		piece[3]="0";
 		piecesList[27] = piece;
 		
 		piece = new String[4];
@@ -342,56 +342,56 @@ public class ChessServiceImpl implements ChessService{
 			piece[0]="WHITE"; 
 			piece[1]="KNIGHT"; 
 			piece[2]="1"; 
-			piece[3]="0";
+			piece[3]="7";
 			piecesList[20] = piece;
 			
 			piece = new String[4];
 			piece[0]="WHITE"; 
 			piece[1]="KNIGHT"; 
 			piece[2]="6"; 
-			piece[3]="0";
+			piece[3]="7";
 			piecesList[21] = piece;
 			
 			piece = new String[4];
 			piece[0]="BLACK"; 
 			piece[1]="KNIGHT"; 
 			piece[2]="1"; 
-			piece[3]="7";
+			piece[3]="0";
 			piecesList[22] = piece;
 			
 			piece = new String[4];
 			piece[0]="BLACK"; 
 			piece[1]="KNIGHT"; 
 			piece[2]="6"; 
-			piece[3]="7";
+			piece[3]="0";
 			piecesList[23] = piece;
 			
 			piece = new String[4];
 			piece[0]="WHITE"; 
 			piece[1]="BISHOP"; 
 			piece[2]="2"; 
-			piece[3]="0";
+			piece[3]="7";
 			piecesList[24] = piece;
 			
 			piece = new String[4];
 			piece[0]="WHITE"; 
 			piece[1]="BISHOP"; 
 			piece[2]="5"; 
-			piece[3]="0";
+			piece[3]="7";
 			piecesList[25] = piece;
 			
 			piece = new String[4];
 			piece[0]="BLACK"; 
 			piece[1]="BISHOP"; 
 			piece[2]="2"; 
-			piece[3]="7";
+			piece[3]="0";
 			piecesList[26] = piece;
 			
 			piece = new String[4];
 			piece[0]="BLACK"; 
 			piece[1]="BISHOP"; 
 			piece[2]="5"; 
-			piece[3]="7";
+			piece[3]="0";
 			piecesList[27] = piece;
 			
 			piece = new String[4];
