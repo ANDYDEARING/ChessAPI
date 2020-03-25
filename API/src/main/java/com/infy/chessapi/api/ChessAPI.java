@@ -91,10 +91,11 @@ public class ChessAPI {
 
 		try {
 			Boolean result = chessService.makeMove(sessionId, boardState);
-			
 			return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 			
 		} catch (Exception e) {
+			System.out.println("**************in catch block****************");
+			e.printStackTrace();
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
 	}

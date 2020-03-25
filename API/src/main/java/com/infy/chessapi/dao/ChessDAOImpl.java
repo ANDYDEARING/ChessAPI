@@ -42,8 +42,13 @@ public class ChessDAOImpl implements ChessDAO {
 				String[] piece = new String[4];
 				piece[0]=pieceEntityList[i].getColor();
 				piece[1]=pieceEntityList[i].getName();
-				piece[2]=Integer.toString(pieceEntityList[i].getxCoord());
-				piece[3]=Integer.toString(pieceEntityList[i].getyCoord());
+				if(pieceEntityList[i].getxCoord()!=null) {
+					piece[2]=Integer.toString(pieceEntityList[i].getxCoord());
+					piece[3]=Integer.toString(pieceEntityList[i].getyCoord());					
+				} else {
+					piece[2]=null;
+					piece[3]=null;
+				}
 				pieceStringList[i]=piece;
 			}
 			result.setPiecesList(pieceStringList);

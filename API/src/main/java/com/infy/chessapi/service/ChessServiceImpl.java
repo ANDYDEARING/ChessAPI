@@ -254,7 +254,11 @@ public class ChessServiceImpl implements ChessService{
 			){
 			Integer differences = 0;
 			for(int i=0;i<previousState.getPiecesList().length;i++){
-				if(
+				if(previousState.getPiecesList()[i][2]==null) {
+					if(newState.getPiecesList()[i][2]!=null) {
+						differences++;
+					}
+				} else if(
 						(!previousState.getPiecesList()[i][0].equals(newState.getPiecesList()[i][0])) ||
 						(!previousState.getPiecesList()[i][1].equals(newState.getPiecesList()[i][1])) ||
 						(!previousState.getPiecesList()[i][2].equals(newState.getPiecesList()[i][2])) ||
