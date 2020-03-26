@@ -1,6 +1,5 @@
 package com.infy.chessapi.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.infy.chessapi.dao.ChessDAO;
 import com.infy.chessapi.model.BoardState;
-import com.infy.chessapi.model.User;
 import com.infy.chessapi.utility.SecureHashUtility;
 
 
@@ -41,6 +39,7 @@ public class ChessServiceImpl implements ChessService{
 		boardState1.setBlackUser("user2");
 		boardState1.setLastMove(LocalDateTime.now());
 		boardState1.setIsWhiteTurn(true);
+		boardState1.setWinner(null);
 		
 		String[][] piecesList = new String[32][4];
 		for(int i=0;i<8;i++){
@@ -267,7 +266,10 @@ public class ChessServiceImpl implements ChessService{
 					differences++;
 				}
 			}
-			if(differences != 1 && differences != 2){
+			//check for concede
+			if(differences==0 && newState.getWinner()!=null) {
+				return true;
+			} else if(differences != 1 && differences != 2){
 				return false;
 			} else if(
 					(previousState.getIsWhiteTurn() && previousState.getWhiteUser().equals(username)) ||
@@ -295,6 +297,7 @@ public class ChessServiceImpl implements ChessService{
 			boardState.setBlackUser(targetUserName);
 			boardState.setLastMove(LocalDateTime.now());
 			boardState.setIsWhiteTurn(true);
+			boardState.setWinner(null);
 			
 			String[][] piecesList = new String[32][4];
 			for(int i=0;i<8;i++){

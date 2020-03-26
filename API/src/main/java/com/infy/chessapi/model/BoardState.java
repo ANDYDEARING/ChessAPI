@@ -1,6 +1,5 @@
 package com.infy.chessapi.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class BoardState {
@@ -11,8 +10,15 @@ public class BoardState {
 	private LocalDateTime lastMove;
 	private Boolean isWhiteTurn;
 	private String[][] piecesList;
+	private String winner;
 	
 	
+	public String getWinner() {
+		return winner;
+	}
+	public void setWinner(String winner) {
+		this.winner = winner;
+	}
 	public String getWhiteUser() {
 		return whiteUser;
 	}

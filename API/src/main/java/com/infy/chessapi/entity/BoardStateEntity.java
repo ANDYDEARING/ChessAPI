@@ -43,6 +43,18 @@ public class BoardStateEntity {
 	@JoinColumn(name="BOARD_ID")
 	@OrderColumn(name="PIECE_INDEX")
 	private PieceEntity[] piecesList;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="WINNER")
+	private UserEntity winner;
+
+	public UserEntity getWinner() {
+		return winner;
+	}
+
+	public void setWinner(UserEntity winner) {
+		this.winner = winner;
+	}
 
 	public Integer getGameID() {
 		return gameID;

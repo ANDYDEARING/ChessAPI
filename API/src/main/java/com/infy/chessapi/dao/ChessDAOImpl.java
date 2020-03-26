@@ -123,6 +123,11 @@ public class ChessDAOImpl implements ChessDAO {
 					entityManager.persist(piece);
 				}
 			}
+			if(board.getWinner()==null) {
+				boardEntity.setWinner(null);
+			} else {
+				boardEntity.setWinner(entityManager.find(UserEntity.class, board.getWinner()));			
+			}
 			entityManager.persist(boardEntity);
 			return true;
 		} else {
@@ -137,6 +142,11 @@ public class ChessDAOImpl implements ChessDAO {
 		boardEntity.setWhiteUser(entityManager.find(UserEntity.class, boardState.getWhiteUser()));
 		boardEntity.setIsWhiteTurn(boardState.getIsWhiteTurn());
 		boardEntity.setLastMove(boardState.getLastMove());
+		if(boardState.getWinner()==null) {
+			boardEntity.setWinner(null);
+		} else {
+			boardEntity.setWinner(entityManager.find(UserEntity.class, boardState.getWinner()));			
+		}
 		PieceEntity[] pieceEntityList = new PieceEntity[32];
 		String[][] piecesStringList = boardState.getPiecesList();
 		for(int j=0;j<piecesStringList.length;j++){
@@ -180,6 +190,11 @@ public class ChessDAOImpl implements ChessDAO {
 				boardEntity.setWhiteUser(entityManager.find(UserEntity.class, boardState.getWhiteUser()));
 				boardEntity.setIsWhiteTurn(boardState.getIsWhiteTurn());
 				boardEntity.setLastMove(boardState.getLastMove());
+				if(boardState.getWinner()==null) {
+					boardEntity.setWinner(null);
+				} else {
+					boardEntity.setWinner(entityManager.find(UserEntity.class, boardState.getWinner()));			
+				}
 				PieceEntity[] pieceEntityList = new PieceEntity[32];
 				String[][] piecesStringList = boardState.getPiecesList();
 				for(int j=0;j<piecesStringList.length;j++){
