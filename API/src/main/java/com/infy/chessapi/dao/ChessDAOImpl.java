@@ -36,6 +36,11 @@ public class ChessDAOImpl implements ChessDAO {
 			result.setGameID(boardEntity.getGameID());
 			result.setIsWhiteTurn(boardEntity.getIsWhiteTurn());
 			result.setLastMove(boardEntity.getLastMove());
+			if(boardEntity.getWinner()==null) {
+				result.setWinner(null);
+			} else {
+				result.setWinner(boardEntity.getWinner().getUsername());
+			}
 			PieceEntity[] pieceEntityList = boardEntity.getPiecesList();
 			String[][] pieceStringList = new String[32][4];
 			for(int i=0;i<pieceEntityList.length;i++){
@@ -81,6 +86,11 @@ public class ChessDAOImpl implements ChessDAO {
 			boardStub.setGameID(resultEntityList.get(i).getGameID());
 			boardStub.setIsWhiteTurn(resultEntityList.get(i).getIsWhiteTurn());
 			boardStub.setLastMove(resultEntityList.get(i).getLastMove());
+			if(resultEntityList.get(i).getWinner()==null) {
+				boardStub.setWinner(null);
+			} else {
+				boardStub.setWinner(resultEntityList.get(i).getWinner().getUsername());
+			}
 			resultStubList.add(boardStub);
 		}
 		return resultStubList;
