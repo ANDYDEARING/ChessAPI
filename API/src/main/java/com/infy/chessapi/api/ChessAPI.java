@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,7 +99,7 @@ public class ChessAPI {
 		}
 	}
 	
-	@PutMapping(value= "startgame/{targetUserName}")
+	@PostMapping(value = "startgame/{targetUserName}")
 	public ResponseEntity<Boolean> startGame(
 			@RequestHeader("session-id") String sessionId,
 			@PathVariable("targetUserName") String targetUserName){
