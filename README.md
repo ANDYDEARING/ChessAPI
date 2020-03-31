@@ -1,6 +1,6 @@
-# CHESS API
+# ChessAPI
 
-This API is, at of the time of this writing, is deployed at https://infy-chess-api.herokuapp.com/ChessAPI/ and was written as a companion to the Chess App at https://infy-chess.surge.sh. It is written in Spring Boot and Java and uses a MySQL database for persistence.
+This is a web API for database interaction to handle persistence for a browser-based ChessApp. This API is, at of the time of this writing, is deployed at https://infy-chess-api.herokuapp.com/ChessAPI/ and was written as a companion to the Chess App at https://infy-chess.surge.sh. It is written in Spring Boot and Java and uses a MySQL database for persistence.
 
 The API endpoints are:
 
