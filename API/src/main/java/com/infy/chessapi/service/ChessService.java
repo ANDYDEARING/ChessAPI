@@ -7,7 +7,7 @@ import com.infy.chessapi.model.BoardState;
 public interface ChessService {
 	public Boolean populateTestData();
 
-	public String authenticateCustomer(String username, String password) throws Exception;
+	public String authenticateUser(String username, String password) throws Exception;
 
 	public List<BoardState> getGames(String sessionId) throws Exception;
 
@@ -20,4 +20,6 @@ public interface ChessService {
 	public Boolean verifyMove(String username, BoardState previousState, BoardState newState) throws Exception;
 
 	public Boolean startGame(String sessionId, String targetUserName) throws Exception;
+
+	public String registerUser(String username, String password) throws Exception;
 }

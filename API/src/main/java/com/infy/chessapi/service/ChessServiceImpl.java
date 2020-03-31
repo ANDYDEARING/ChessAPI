@@ -181,7 +181,7 @@ public class ChessServiceImpl implements ChessService{
 	}
 
 	@Override
-	public String authenticateCustomer(String username, String password) throws Exception {
+	public String authenticateUser(String username, String password) throws Exception {
 		String sessionId = null;
 		String passwordFromDB = chessDAO.getPassword(username);
 		if(passwordFromDB!=null){
@@ -435,5 +435,16 @@ public class ChessServiceImpl implements ChessService{
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public String registerUser(String username, String password) throws Exception{
+		String sessionId = null;
+		if(!chessDAO.verifyUserExists(username)){
+			sessionId = chessDAO.registerUser(username, password);
+		} else {
+			throw new Exception ("ChessService.USERNAME_ALREADY_EXISTS");
+		}
+		return sessionId;
 	}
 }

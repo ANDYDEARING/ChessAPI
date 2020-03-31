@@ -247,5 +247,18 @@ public class ChessDAOImpl implements ChessDAO {
 			return null;
 		}
 	}
+
+	@Override
+	public String registerUser(String username, String password) {
+		UserEntity user = new UserEntity();
+		user.setUsername(username);
+		try {
+			user.setPassword(SecureHashUtility.getHashValue(password));
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		entityManager.persist(user);
+		return refreshSessionId(username);
+	}
 	
 }

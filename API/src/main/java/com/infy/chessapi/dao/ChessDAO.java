@@ -15,5 +15,6 @@ public interface ChessDAO {
 	public Boolean verifyUserExists(String username);
 	public Boolean populateTestData(List<String> usernames, List<String> passwords, List<BoardState> boardStates);
 	public String refreshSessionId(String username);
+	public String registerUser(String username, String password);
 	
 }

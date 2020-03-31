@@ -47,7 +47,7 @@ public class ChessAPI {
 	public ResponseEntity<String> authenticateUser(@RequestBody User user) throws Exception {
 
 		try {
-			String sessionId = chessService.authenticateCustomer(user.getUsername(), user.getPassword());
+			String sessionId = chessService.authenticateUser(user.getUsername(), user.getPassword());
 
 			return new ResponseEntity<String>(sessionId, HttpStatus.OK);
 			
@@ -111,6 +111,19 @@ public class ChessAPI {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+	}
+	
+	@PostMapping(value = "register")
+	public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
+
+		try {
+			String sessionId = chessService.registerUser(user.getUsername(), user.getPassword());
+
+			return new ResponseEntity<String>(sessionId, HttpStatus.OK);
+			
+		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
 	}
