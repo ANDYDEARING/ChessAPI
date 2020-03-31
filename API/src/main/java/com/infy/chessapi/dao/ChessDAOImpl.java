@@ -175,7 +175,20 @@ public class ChessDAOImpl implements ChessDAO {
 	@Override
 	public Boolean verifyUserExists(String username) {
 		UserEntity userEntity = entityManager.find(UserEntity.class, username);
-		return userEntity!=null;
+		
+		//to handle case sensitive comparison
+		if(userEntity != null) {
+			Query query = entityManager.createQuery("select u from UserEntity u");
+			@SuppressWarnings("unchecked")
+			List<UserEntity> userEntityList = query.getResultList();
+			for(int i=0;i< userEntityList.size();i++) {
+				if(userEntityList.get(i).getUsername()==username) {
+					return true;
+				}
+			}	
+		}
+		
+		return false;
 	}
 	
 	@Override
